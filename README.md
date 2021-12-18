@@ -75,3 +75,10 @@ The very important part is `@app.route('/', methods=["POST"], security=True)`
 1. the `route` (here is the root route), Each route must be differente and they are not match pattern.
 1. the `methods` allowed (POST, GET...).
 1. the `security` (it is optional). The define token in the config.py must be past to the request in the header with the key `token`.
+
+## IDE
+
+vs-code with the pico-go extension is very great to develop the project.
+- tips: add in `.vscode\settings.json `"python.analysis.extraPaths": [".vscode\\Pico-Stub\\stubs", "lib"]` to be in the same condition as the pico.
+
+Thonny is more stable to upload and run the code on the pico.
