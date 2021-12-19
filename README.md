@@ -21,7 +21,7 @@ Raspberry pi pico micropython:
 
 ## Setup the Pico-eth-ch9121 Board
 
-1. Plug the pico to the ch9121 (follow the usb symbol draw on the ch9121).
+1. Plug the pico to the ch9121 (follow the usb symbol drawn on the ch9121).
 1. Plug the usb cable to the pico and the rj45 to the ch9121.
 1. To setup the ch9121, use the NetModuleConfig.exe on a computer in the same lan than the ch9121.
 1. Follow the configuration describe in the [ETH-01.pdf](https://h-2technik.com/online/webee/ETH-01/H2_ETH-01.pdf)
@@ -29,7 +29,7 @@ Raspberry pi pico micropython:
 ## project structure
 
 1. `main.py` is the entry point of the code for the pico.
-1. `lib` is the default directory for the modules. No need of `__init__.py` file. Our libraries wil be stored their.
+1. `lib` is the default directory for the modules. No need of `__init__.py` file. Our libraries will be stored there.
 1. `lib\server.py` is the class for the ch9121 server with the UART0 configuration.
 1. `lib\web.py` is the tiny framework (flask-like) to manage the request and response.
 1. `lib\action.py` is only for the exemple.
@@ -72,13 +72,13 @@ loop.run_forever()
 ```
 
 The very important part is `@app.route('/', methods=["POST"], security=True)`
-1. the `route` (here is the root route), Each route must be differente and they are not match pattern.
+1. the `route` (here is the root route), Each route must be different and they is no match pattern.
 1. the `methods` allowed (POST, GET...).
 1. the `security` (it is optional). The define token in the config.py must be past to the request in the header with the key `token`.
 
 ## IDE
 
-vs-code with the pico-go extension is very great to develop the project.
+vs-code with the pico-go extension is very usefull for developping the project.
 - tips: add in `.vscode\settings.json `"python.analysis.extraPaths": [".vscode\\Pico-Stub\\stubs", "lib"]` to be in the same condition as the pico.
 
-Thonny is more stable to upload and run the code on the pico.
+Thonny is more stable to upload and run the code on the pico than pico-go extension.
