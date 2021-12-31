@@ -24,7 +24,6 @@ The configuration for TCP server is stored in `config.py`.
 
 ## project structure
 
-1. `boot.py` is launch at the begining and it's used to set the TCP server.
 1. `main.py` is the entry point of the code for the pico.
 1. `lib` is the default directory for the modules. No need of `__init__.py` file. Our libraries will be stored there.
 1. `lib\server.py` is the class for the ch9121 server with the UART0 configuration.
@@ -45,6 +44,13 @@ from action import do_led
 
 # Setup the server and the App
 server = CH9121()
+
+loop = asyncio.get_event_loop()
+print("start config")
+loop.run_until_complete(server.set_tcp_server(**SERVER_CONFIG))
+print("config complet")
+loop.close()
+
 app = App(
     server=server,
     token=WEB_CONFIG["TOKEN"]
@@ -53,11 +59,11 @@ app = App(
 # Route section
 @app.route('/', methods=["POST"], security=True)
 def main(request):
-    action = loads(request.headers["action"])
-    do_led(action["LED"])
+    actions = loads(request.headers["actions"])
+    do_led(actions["LED"])
     return reponse(
         http_code=200,
-        body=dumps(action),
+        body=dumps(actions),
         content_type="json"
     )
 

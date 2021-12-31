@@ -9,7 +9,7 @@ class CMD:
 
     @property
     def server_tcp(self):
-        return b'\x57\xab\x10' + (0).to_bytes(2, 'little')
+        return b'\x57\xab\x10\x00'
 
     @property
     def save(self):
