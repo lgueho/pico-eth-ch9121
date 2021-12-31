@@ -6,7 +6,6 @@ Micropython flask-like for raspberry pi pico and pico-eth-ch9121 Ethernet to UAR
 
 Pico-eth-ch9121:
 - [constructor wiki](https://www.waveshare.com/wiki/Pico-ETH-CH9121).
-- [NetModuleConfig.exe](https://h-2technik.com/online/webee/ETH-01/Tool/NetModuleConfig.exe).
 - [ETH-01.pdf](https://h-2technik.com/online/webee/ETH-01/H2_ETH-01.pdf)
 
 Raspberry pi pico micropython:
@@ -21,13 +20,11 @@ Raspberry pi pico micropython:
 
 ## Setup the Pico-eth-ch9121 Board
 
-1. Plug the pico to the ch9121 (follow the usb symbol drawn on the ch9121).
-1. Plug the usb cable to the pico and the rj45 to the ch9121.
-1. To setup the ch9121, use the NetModuleConfig.exe on a computer in the same lan than the ch9121.
-1. Follow the configuration describe in the [ETH-01.pdf](https://h-2technik.com/online/webee/ETH-01/H2_ETH-01.pdf)
+The configuration for TCP server is stored in `config.py`.
 
 ## project structure
 
+1. `boot.py` is launch at the begining and it's used to set the TCP server.
 1. `main.py` is the entry point of the code for the pico.
 1. `lib` is the default directory for the modules. No need of `__init__.py` file. Our libraries will be stored there.
 1. `lib\server.py` is the class for the ch9121 server with the UART0 configuration.

@@ -9,8 +9,9 @@ from action import do_led
 server = CH9121()
 app = App(
     server=server,
-    token=WEB_CONFIG["TOKEN"]
+    token=WEB_CONFIG["token"]
 )
+
 
 # Route section
 @app.route('/', methods=["POST"], security=True)
@@ -22,6 +23,7 @@ def main(request):
         body=dumps(action),
         content_type="json"
     )
+
 
 # Loop section
 loop = asyncio.get_event_loop()
