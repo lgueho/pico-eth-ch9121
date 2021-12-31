@@ -12,6 +12,10 @@ Raspberry pi pico micropython:
 - [firmware](https://micropython.org/download/rp2-pico/).
 - [Documentation](https://www.raspberrypi.com/documentation/microcontrollers/raspberry-pi-pico.html#technical-specification).
 
+## Pin
+
+![pin](./img/Pico-ETH-CH9121.jpg)
+
 ## Lexic
 
 - Pico: Raspberry pi pico Board.
