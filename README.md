@@ -39,6 +39,7 @@ The configuration for TCP server is stored in `config.py`.
 `main.py`
 
 ```py
+import gc
 import uasyncio as asyncio
 from ujson import dumps, loads
 from config import WEB_CONFIG
@@ -59,6 +60,9 @@ app = App(
     server=server,
     token=WEB_CONFIG["TOKEN"]
 )
+
+# Memory clean
+gc.collect()
 
 # Route section
 @app.route('/', methods=["POST"], security=True)

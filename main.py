@@ -1,3 +1,4 @@
+import gc
 import uasyncio as asyncio
 from ujson import dumps, loads
 from config import WEB_CONFIG
@@ -21,6 +22,8 @@ app = App(
     token=WEB_CONFIG["token"]
 )
 
+# Memory clean
+gc.collect()
 
 # Route section
 @app.route('/', methods=["POST"], security=True)

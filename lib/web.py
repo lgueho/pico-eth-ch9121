@@ -1,3 +1,4 @@
+import gc
 CONTENT_TYPE = {
     "text": "text/html; charset=utf-8",
     "html": "text/html; charset=utf-8",
@@ -139,6 +140,8 @@ class App:
             await writer.awrite(byte_reponse)
             # Flush the stream.
             await writer.drain()
+            # Memory clean
+            gc.collect()
 
     async def serve(self):
         await self.server.serve(self._dispatch, self.host, self.port)
